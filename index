@@ -1,1 +1,28 @@
-<!-- and they deserve to eat chocolate at their last day. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&F- your AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+ <h1 class="SFmaintext">Stone & Flinch</h1>
+    
+</body>
+<style>
+    .SFmaintext{
+        font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color: white;
+    }
+
+    body{
+        background-color: rgb(0, 2, 10);
+    }
+</style>
+</html>
