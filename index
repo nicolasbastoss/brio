@@ -20,7 +20,7 @@
     
 </body>
 <style>
-/* 🔹 Fade-in animation (only opacity) */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -30,7 +30,7 @@
   }
 }
 
-/* Apply fade-in to text, description, and button */
+
 .inside-text,
 .descripition,
 .buttone {
@@ -95,9 +95,9 @@
      .inside-text {
         animation-delay: 0.3s;
       position: absolute;
-      top: 10%;   /* vertical center */
-      left: 50%;  /* horizontal center */
-      transform: translate(-50%, -50%); /* perfect centering */
+      top: 10%;   
+      left: 50%;  
+      transform: translate(-50%, -50%); 
       color: white;
       font-family: "Manrope", sans-serif;
       font-size: 3rem;
@@ -107,11 +107,11 @@
 
      #imageslayyy{
          display: block;
-  margin: 0 auto;   /* centers image */
+  margin: 0 auto;   
   border-radius: 25px;
-  max-width: 80%;   /* makes it responsive */
+  max-width: 80%;   
   height: auto;
-  border-top: 2px solid white;    /* white border on top */
+  border-top: 2px solid white;    
   border-bottom: 2px solid white; 
      }
     .SFmaintext{
@@ -124,7 +124,7 @@
 
     body{
         background-color: black;
-         text-align: center; /* centers text AND image */
+         text-align: center; 
     }
 </style>
 
