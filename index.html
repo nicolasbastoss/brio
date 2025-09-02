@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 
-
+   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <style>
     /* 🔹 Fade-in animation */
     @keyframes fadeIn {
@@ -115,15 +115,34 @@
       .buttone { padding: 14px 50px; font-size: 1rem; }
     }
 
+    .account-icon {
+  position: fixed;      /* stays in place even when scrolling */
+  top: 20px;            /* distance from top */
+  right: 20px;          /* distance from right */
+  z-index: 10;          /* above everything else */
+  text-decoration: none; /* remove underline */
+}
+
+.account-icon .material-symbols-outlined {
+  font-size: 36px;      /* small, but visible */
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.account-icon .material-symbols-outlined:hover {
+  transform: scale(1.2); /* slight hover effect */
+}
+
     
 
   </style>
 </head>
 <body>
-  <div id="userInter">
-    
-  </div>
-  <img src="IMG_0264.png">
+  <!-- Tiny account icon on the right side -->
+<a href="#signup" class="account-icon">
+  <span class="material-symbols-outlined">account_circle</span>
+</a>
 
   <h1 class="SFmaintext">Lock & Safe</h1>
 
