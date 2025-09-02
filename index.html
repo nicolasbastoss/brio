@@ -134,80 +134,6 @@
   transform: scale(1.2); /* slight hover effect */
 }
 
-/* Full-screen modal */
-#loginModal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85); /* Dark transparent overlay */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; /* Ensure it’s above everything */
-}
-
-/* Modal box */
-.modal-content {
-  background: #111; /* Match dark theme */
-  color: white;
-  border-radius: 25px;
-  padding: 40px 30px;
-  width: 350px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-  text-align: center;
-  position: relative;
-  animation: fadeInModal 0.3s ease;
-}
-
-/* Modal inputs */
-.modal-content input {
-  width: 100%;
-  padding: 14px 15px;
-  margin: 12px 0;
-  border-radius: 12px;
-  border: 1px solid #333;
-  background: #222;
-  color: white;
-  font-size: 1rem;
-}
-
-/* Focus effect */
-.modal-content input:focus {
-  outline: none;
-  border-color: #4CAF50;
-}
-
-/* Modal button */
-.modal-content button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 15px;
-  border-radius: 12px;
-  border: none;
-  background: #4CAF50;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.modal-content button:hover {
-  background: #45a049;
-  transform: scale(1.03);
-}
-
-/* Fade-in animation */
-@keyframes fadeInModal {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Optional: style for modal inputs and button hover handled inline above */
-    
-
   </style>
 </head>
 <script>
@@ -245,63 +171,12 @@
 </div>
 
 
-  <!-- Login / Signup Modal -->
-<div id="loginModal">
-  <div class="modal-content">
-    <h2>Sign Up / Login</h2>
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <button id="loginBtn">Submit</button>
-  </div>
-</div>
+  
 
 </body>
 
 <script>
 
-// Elements
-const profileIcon = document.getElementById('profileIcon');
-const loginModal = document.getElementById('loginModal');
-const loginBtn = document.getElementById('loginBtn');
-const usernameDisplay = document.getElementById('usernameDisplay');
 
-// Show modal when clicking icon
-profileIcon.addEventListener('click', () => {
-    loginModal.style.display = 'flex';
-});
-
-// Check if user is already logged in
-const user = JSON.parse(localStorage.getItem('user'));
-if(user){
-    usernameDisplay.textContent = user.username;
-}
-
-// Handle login/signup
-loginBtn.addEventListener('click', () => {
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value;
-    if(username && password){
-        localStorage.setItem('user', JSON.stringify({username,password}));
-        usernameDisplay.textContent = username;
-        loginModal.style.display = 'none';
-        // Optionally: show a small welcome message
-        alert(`Welcome, ${username}!`);
-    } else {
-        alert("Please enter username and password");
-    }
-});
-
-  
-// Show modal when clicking icon
-profileIcon.addEventListener('click', () => {
-    loginModal.style.display = 'flex';
-});
-
-// Close modal if click outside the box
-loginModal.addEventListener('click', (e) => {
-    if(e.target === loginModal){
-        loginModal.style.display = 'none';
-    }
-});
 </script>
 </html>
