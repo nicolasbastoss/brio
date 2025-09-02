@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <h1 id="myID"></h1>
 </head>
 <body>
     <h1 id="maintext">Stone & Flinch</h1>
@@ -35,6 +37,10 @@
     }
 </style>
 <script>
+    let myId = document.getElementById("myID")
+
+    myID.textContent = `Hello ${user}`
+    
     const user = JSON.parse(localStorage.getItem('user'));
 if(user){
     // Show username under icon
