@@ -1,126 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S&F- your AI</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-</head>
-<body>
- <h1 class="SFmaintext">Stone & Flinch</h1>
- <div class="image-container">
- <img src="an AI for business.png" id="imageslayyy" alt="AI on phone and computer"></img>
- <div class="inside-text">Your AI for Business</div>
-  <div class="descripition">Make your bussines launch with AI by your side.</div>
-  <button class="buttone">Get started &#8599; </button>
- 
-</div>
-    
-</body>
-<style>
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-
-.inside-text,
-.descripition,
-.buttone {
-  opacity: 0; /* hidden at first */
-  animation: fadeIn 1s ease forwards; /* fade in */
-}
-
-
-
-
-
-
-
-
-
-    .buttone{
-         animation-delay: 0.9s;
-        position: absolute;
-      top: 16%;   /* vertical center */
-      left: 50%;  /* horizontal center */
-      transform: translate(-50%, -50%); /* perfect centering */
-      background-color: white;
-      color: black;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S&F - your AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
       font-family: "Manrope", sans-serif;
-      border: none;
-      padding: 12px 30px;
-      border-radius: 25px;
+    }
+
+    .SFmaintext {
       font-weight: 600;
-      transition: all 0.3s ease;
-
-      
+      color: white;
+      margin-bottom: 30px;
     }
 
-    .buttone:hover{
-     
-  transform: translate(-50%, -50%) scale(1.05); /* slight grow */
-  box-shadow: 0 0 15px rgba(255, 11, 235, 0.4); /* glow effect */
-    }
-
-      .image-container {
-      position: relative;   /* allows text positioning */
+    .image-container {
+      position: relative;
       display: inline-block;
     }
 
-    .descripition{
-        animation-delay: 0.6s;
-         position: absolute;
-      top: 13%;   /* vertical center */
-      left: 50%;  /* horizontal center */
-      transform: translate(-50%, -50%); /* perfect centering */
-      color: white;
-      font-family: "Manrope", sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
+    #imageslayyy {
+      display: block;
+      border-radius: 25px;
+      max-width: 80%;
+      height: auto;
+      border-top: 2px solid white;
+      border-bottom: 2px solid white;
     }
 
-     .inside-text {
-        animation-delay: 0.3s;
+    .inside-text, .descripition, .buttone {
       position: absolute;
-      top: 10%;   
-      left: 50%;  
-      transform: translate(-50%, -50%); 
+      left: 50%;
+      transform: translate(-50%, -50%);
       color: white;
       font-family: "Manrope", sans-serif;
-      font-size: 3rem;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .inside-text { top: 10%; font-size: 3rem; animation-delay: 0.3s; }
+    .descripition { top: 13%; font-size: 1rem; font-weight: 600; animation-delay: 0.6s; }
+    .buttone {
+      top: 16%;
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 25px;
       font-weight: 600;
-     
+      cursor: pointer;
+      animation-delay: 0.9s;
+      transition: all 0.3s ease;
     }
 
-     #imageslayyy{
-         display: block;
-  margin: 0 auto;   
-  border-radius: 25px;
-  max-width: 80%;   
-  height: auto;
-  border-top: 2px solid white;    
-  border-bottom: 2px solid white; 
-     }
-    .SFmaintext{
-        font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  color: white;
+    .buttone:hover {
+      transform: translate(-50%, -50%) scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 11, 235, 0.4);
     }
 
-    body{
-        background-color: black;
-         text-align: center; 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-</style>
 
+    /* 🔹 Mobile-only adjustments */
+    @media (max-width: 768px) {
+      #imageslayyy {
+        max-width: 95%; /* bigger image on phone */
+      }
+      .inside-text {
+        font-size: 2rem; /* smaller text on phone */
+      }
+      .descripition {
+        font-size: 0.9rem;
+      }
+      .buttone {
+        padding: 12px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="SFmaintext">Stone & Flinch</h1>
+  <div class="image-container">
+    <img src="an AI for business.png" id="imageslayyy" alt="AI on phone and computer">
+    <div class="inside-text">Your AI for Business</div>
+    <div class="descripition">Make your business launch with AI by your side.</div>
+    <button class="buttone">Get started &#8599;</button>
+  </div>
+</body>
 </html>
