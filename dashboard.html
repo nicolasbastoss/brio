@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&F - dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 id="maintext">Stone & Flinch</h1>
+    <div class="account-icon">
+  <span class="material-symbols-outlined">account_circle</span>
+  <div id="usernameDisplay"></div>
+</div>
+
+    
+</body>
+<style>
+    #maintext{
+        font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color: white;
+    }
+
+    body{
+        font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  background-color: black;
+    }
+</style>
+<script>
+    const user = JSON.parse(localStorage.getItem('user'));
+if(user){
+    // Show username under icon
+    document.getElementById('usernameDisplay').textContent = user.username;
+}else{
+    // If no user, redirect to main page
+    window.location.href = 'index.html';
+}
+
+// Logout button clears storage and redirects
+document.getElementById('logoutBtn').addEventListener('click', () => {
+    localStorage.removeItem('user');
+    window.location.href = 'index.html';
+});
+</script>
+</html>
