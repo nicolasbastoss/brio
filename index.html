@@ -9,13 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1 class="SFmaintext">Lock & Find</h1>
+<div class="video-container">
+  <!-- Background video -->
+  <video autoplay muted loop playsinline id="bgvideo">
+    <source src="video-safe.mp4" type="video/mp4">
+    Your browser does not support video playback.
+  </video>
 
-  <div class="image-container">
-    <video autoplay muted loop playsinline id="imageslayyy">
-  <source src="an AI for business.mp4" type="video/mp4">
-  Your browser does not support video playback.
-</video>
     <div class="overlay">
       <div class="inside-text">Safe now and forever.</div>
       <div class="descripition">The place to make your phone safe</div>
@@ -31,6 +31,35 @@
     from { opacity: 0; transform: translateY(-20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+  .video-container {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 50px;   /* cylinder style */
+  overflow: hidden;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+#bgvideo {
+  position: absolute;   /* video stays behind */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* fills the cylinder */
+  z-index: 0;           /* make sure it's at the back */
+  filter: brightness(0.3);
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;           /* keep text above video */
+  text-align: center;
+  color: white;
+  padding: 40px;
+}
 
   .inside-text,
   .descripition,
@@ -57,13 +86,7 @@
     
   }
 
-  /* Let the image determine the height naturally */
-  #imageslayyy {
-      width: 100%;
-  height: auto;
-  display: block;
-  filter: brightness(0.3);
-  }
+  
 
   /* --- Overlay content --- */
   .overlay {
