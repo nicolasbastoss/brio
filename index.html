@@ -134,6 +134,13 @@
   transform: scale(1.2); /* slight hover effect */
 }
 
+
+.account-icon { position: fixed; top: 20px; right: 20px; text-align:center; cursor:pointer; z-index:10; }
+.account-icon .material-symbols-outlined { font-size:36px; color:white; transition: transform 0.2s; }
+.account-icon .material-symbols-outlined:hover { transform: scale(1.2); }
+#usernameDisplay { font-size:12px; color:white; margin-top:2px; }
+
+/* Optional: style for modal inputs and button hover handled inline above */
     
 
   </style>
@@ -143,11 +150,11 @@
 
 </script>
 <body>
-<!-- Tiny account icon on the right side -->
-<a href="singup.html" class="account-icon">
+<!-- Profile Icon -->
+<div class="account-icon" id="profileIcon">
   <span class="material-symbols-outlined">account_circle</span>
-  <div id="usernameDisplay" style="font-size:12px; color:white; text-align:center; margin-top:2px;"></div>
-</a>
+  <div id="usernameDisplay"></div>
+</div>
 
 
   <h1 class="SFmaintext">Lock & Safe</h1>
@@ -168,7 +175,59 @@
       </a>
     </div>
   </div>
+  
+  <!-- Login / Signup Modal -->
+<div id="loginModal" style="display:none; justify-content:center; align-items:center; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7);">
+  <div style="background:white; padding:30px; border-radius:15px; width:300px; text-align:center; color:black;">
+    <h2>Sign Up / Login</h2>
+    <input type="text" id="username" placeholder="Username" style="width:100%; padding:10px; margin:10px 0; border-radius:8px; border:1px solid #ccc;">
+    <input type="password" id="password" placeholder="Password" style="width:100%; padding:10px; margin:10px 0; border-radius:8px; border:1px solid #ccc;">
+    <button id="loginBtn" style="padding:10px 20px; border:none; border-radius:8px; background:#4CAF50; color:white; cursor:pointer;">Submit</button>
+  </div>
+</div>
 
 </body>
 
+<script>
+
+// Elements
+const profileIcon = document.getElementById('profileIcon');
+const loginModal = document.getElementById('loginModal');
+const loginBtn = document.getElementById('loginBtn');
+const usernameDisplay = document.getElementById('usernameDisplay');
+
+// Show modal when clicking icon
+profileIcon.addEventListener('click', () => {
+    loginModal.style.display = 'flex';
+});
+
+// Check if user is already logged in
+const user = JSON.parse(localStorage.getItem('user'));
+if(user){
+    usernameDisplay.textContent = user.username;
+}
+
+// Handle login/signup
+loginBtn.addEventListener('click', () => {
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+    if(username && password){
+        localStorage.setItem('user', JSON.stringify({username,password}));
+        usernameDisplay.textContent = username;
+        loginModal.style.display = 'none';
+        // Optionally: show a small welcome message
+        alert(`Welcome, ${username}!`);
+    } else {
+        alert("Please enter username and password");
+    }
+});
+
+// Close modal if click outside content
+loginModal.addEventListener('click', (e) => {
+    if(e.target === loginModal){
+        loginModal.style.display = 'none';
+    }
+});
+
+</script>
 </html>
