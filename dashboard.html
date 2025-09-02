@@ -39,7 +39,7 @@
 <script>
     let myId = document.getElementById("myID")
 
-   
+    
     
     const user = JSON.parse(localStorage.getItem('user'));
 if(user){
@@ -50,12 +50,14 @@ if(user){
     window.location.href = 'index.html';
 }
 
-     myID.textContent = `Hello ${user}`
+
 
 // Logout button clears storage and redirects
 document.getElementById('logoutBtn').addEventListener('click', () => {
     localStorage.removeItem('user');
     window.location.href = 'index.html';
 });
+
+myId.textContent = `Hello ${user}`
 </script>
 </html>
