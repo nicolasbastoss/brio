@@ -249,12 +249,19 @@
 </body>
 
 <script>
-
 const profileIcon = document.getElementById('profileIcon');
 const loginModal = document.getElementById('loginModal');
 const loginBtn = document.getElementById('loginBtn');
+const getStartedBtn = document.getElementById('getStartedBtn');
 
-// Show modal
+// ✅ Check if user is already logged in
+const savedUser = JSON.parse(localStorage.getItem('user'));
+if (savedUser && savedUser.username) {
+  // go straight to dashboard
+  window.location.href = "dashboard.html";
+}
+
+// Show modal when clicking profile icon
 profileIcon.addEventListener('click', () => {
   loginModal.style.display = 'flex';
 });
@@ -282,11 +289,12 @@ loginBtn.addEventListener('click', () => {
   }
 });
 
-  // Make "Get started" button open the modal too
-const getStartedBtn = document.getElementById('getStartedBtn');
-
-getStartedBtn.addEventListener('click', () => {
-  loginModal.style.display = 'flex';
+// Make "Get started" button open the modal if not logged in
+getStartedBtn.addEventListener('click', (e) => {
+  if (!(savedUser && savedUser.username)) {
+    e.preventDefault(); // prevent <a> navigation
+    loginModal.style.display = 'flex';
+  }
 });
 </script>
 
