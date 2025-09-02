@@ -138,11 +138,44 @@
 
   </style>
 </head>
+<script>
+ // Check if user is logged in
+window.addEventListener('load', () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if(user){
+        // Redirect to dashboard if logged in
+        window.location.href = 'dashboard.html';
+    }
+});
+
+// On page load, check if user info exists in localStorage
+window.addEventListener('load', () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  if (user) {
+    document.getElementById('usernameDisplay').textContent = user.username;
+  }
+});
+
+const user = JSON.parse(localStorage.getItem('user'));
+if(user){
+    // Show username under icon
+    document.getElementById('usernameDisplay').textContent = user.username;
+}else{
+    // If no user, redirect to main page
+    window.location.href = 'index.html';
+}
+
+
+
+
+</script>
 <body>
-  <!-- Tiny account icon on the right side -->
-<a href="#signup" class="account-icon">
+<!-- Tiny account icon on the right side -->
+<a href="signup.html" class="account-icon">
   <span class="material-symbols-outlined">account_circle</span>
+  <div id="usernameDisplay" style="font-size:12px; color:white; text-align:center; margin-top:2px;"></div>
 </a>
+
 
   <h1 class="SFmaintext">Lock & Safe</h1>
 
@@ -162,4 +195,5 @@
   </div>
 
 </body>
+
 </html>
