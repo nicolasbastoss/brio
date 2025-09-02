@@ -25,71 +25,105 @@
     .image-container {
       position: relative;
       display: inline-block;
+      width: 100%;
+      max-width: 800px;
     }
 
     #imageslayyy {
       display: block;
       border-radius: 25px;
-      max-width: 80%;
+      width: 100%;
       height: auto;
       border-top: 2px solid white;
       border-bottom: 2px solid white;
     }
 
-    .inside-text, .descripition, .buttone {
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-family: "Manrope", sans-serif;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    .inside-text { top: 10%; font-size: 3rem; animation-delay: 0.3s; }
-    .descripition { top: 13%; font-size: 1rem; font-weight: 600; animation-delay: 0.6s; }
-    .buttone {
-      top: 16%;
-      background-color: white;
-      color: black;
-      border: none;
-      padding: 15px 40px;
-      border-radius: 25px;
-      font-weight: 600;
-      cursor: pointer;
-      animation-delay: 0.9s;
-      transition: all 0.3s ease;
-    }
-
-    .buttone:hover {
-      transform: translate(-50%, -50%) scale(1.05);
-      box-shadow: 0 0 15px rgba(255, 11, 235, 0.4);
-    }
-
+    /* Fade-in animation */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
 
-    /* 🔹 Mobile-only adjustments */
+    .inside-text,
+    .descripition,
+    .buttone {
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .inside-text { animation-delay: 0.3s; }
+    .descripition { animation-delay: 0.6s; }
+    .buttone { animation-delay: 0.9s; }
+
+    /* Desktop: text inside image using absolute positioning */
+    @media (min-width: 769px) {
+      .inside-text {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 3rem;
+        font-weight: 600;
+        text-align: center;
+      }
+      .descripition {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+      }
+      .buttone {
+        position: absolute;
+        top: 22%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        color: black;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .buttone:hover {
+        transform: translate(-50%, -50%) scale(1.05);
+        box-shadow: 0 0 15px rgba(255, 11, 235, 0.4);
+      }
+    }
+
+    /* Mobile: stack elements above image for better readability */
     @media (max-width: 768px) {
-      #imageslayyy {
-        max-width: 95%; /* bigger image on phone */
+      .inside-text,
+      .descripition,
+      .buttone {
+        position: static;
+        transform: none;
+        text-align: center;
       }
       .inside-text {
-        font-size: 2rem; /* smaller text on phone */
+        font-size: 2rem;
+        margin-top: -60%; /* pull it over the image */
       }
       .descripition {
         font-size: 0.9rem;
+        margin-top: 10px;
       }
       .buttone {
         padding: 12px 30px;
+        margin-top: 10px;
       }
     }
   </style>
 </head>
 <body>
   <h1 class="SFmaintext">Stone & Flinch</h1>
+
   <div class="image-container">
     <img src="an AI for business.png" id="imageslayyy" alt="AI on phone and computer">
     <div class="inside-text">Your AI for Business</div>
