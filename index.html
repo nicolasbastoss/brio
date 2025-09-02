@@ -12,7 +12,10 @@
   <h1 class="SFmaintext">Lock & Find</h1>
 
   <div class="image-container">
-    <video src="an AI for business.mp3" id="imageslayyy" alt="AI on phone and computer"></video>
+    <video autoplay muted loop playsinline id="imageslayyy">
+  <source src="an AI for business.mp4" type="video/mp4">
+  Your browser does not support video playback.
+</video>
     <div class="overlay">
       <div class="inside-text">Safe now and forever.</div>
       <div class="descripition">The place to make your phone safe</div>
@@ -56,10 +59,10 @@
 
   /* Let the image determine the height naturally */
   #imageslayyy {
-    width: 100%;
-    height: auto; /* natural height */
-    display: block;
-    filter: brightness(0.3);
+      width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0.3);
   }
 
   /* --- Overlay content --- */
