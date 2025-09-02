@@ -1,133 +1,129 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S&F- your AI</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S&F- your AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 </head>
 <body>
- <h1 class="SFmaintext">Stone & Flinch</h1>
- <div class="image-container">
- <img src="an AI for business.png" id="imageslayyy" alt="AI on phone and computer"></img>
- <div class="inside-text">Your AI for Business</div>
-  <div class="descripition">Make your bussines launch with AI by your side.</div>
-  <button class="buttone">Get started &#8599; </button>
-</div>
-    
+  <h1 class="SFmaintext">Stone & Flinch</h1>
+
+  <div class="image-container">
+    <img src="an AI for business.png" id="imageslayyy" alt="AI on phone and computer">
+    <div class="overlay">
+      <div class="inside-text">Your AI for Business</div>
+      <div class="descripition">Make your business launch with AI by your side.</div>
+      <button class="buttone">Get started &#8599;</button>
+    </div>
+  </div>
+
 </body>
 <style>
-
   /* 🔹 Fade-in animation */
-@keyframes fadeIn {
-  from {
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .inside-text,
+  .descripition,
+  .buttone {
     opacity: 0;
-    transform: translate(-50%, -40%); /* starts slightly higher */
+    animation: fadeIn 1s ease forwards;
   }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%); /* ends perfectly centered */
+
+  .inside-text { animation-delay: 0.3s; }
+  .descripition { animation-delay: 0.6s; }
+  .buttone { animation-delay: 0.9s; }
+
+  /* --- Image container --- */
+  .image-container {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 25px;
+    overflow: hidden;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
   }
-}
 
-/* Apply fade-in to text, description, and button */
-.inside-text,
-.descripition,
-.buttone {
-  opacity: 0; /* hidden at first */
-  animation: fadeIn 1s ease forwards; /* fade in */
-}
+  /* Let the image determine the height naturally */
+  #imageslayyy {
+    width: 100%;
+    height: auto; /* natural height */
+    display: block;
+    filter: brightness(0.6); /* darken for text contrast */
+  }
 
-/* different delays so they appear one after another */
-.inside-text {
-  animation-delay: 0.3s;
-}
+  /* --- Overlay content --- */
+  .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    color: white;
+  }
 
-.descripition {
-  animation-delay: 0.6s;
-}
+  .inside-text {
+    font-family: "Manrope", sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
 
-.buttone {
-  animation-delay: 0.9s;
-}
+  .descripition {
+    font-family: "Manrope", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
 
-    .buttone{
-        position: absolute;
-      top: 16%;   /* vertical center */
-      left: 50%;  /* horizontal center */
-      transform: translate(-50%, -50%); /* perfect centering */
-      background-color: white;
-      color: black;
-      font-family: "Manrope", sans-serif;
-      border: none;
-      padding: 12px 30px;
-      border-radius: 25px;
-      font-weight: 600;
-      transition: all 0.3s ease;
+  .buttone {
+    background-color: white;
+    color: black;
+    font-family: "Manrope", sans-serif;
+    border: none;
+    padding: 16px 60px;
+    border-radius: 35px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
 
-      
-    }
+  .buttone:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 20px rgba(255, 11, 235, 0.5);
+  }
 
-    .buttone:hover{
-     
-  transform: translate(-50%, -50%) scale(1.05); /* slight grow */
-  box-shadow: 0 0 15px rgba(255, 11, 235, 0.4); /* glow effect */
-    }
+  /* --- Title outside --- */
+  .SFmaintext {
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+  }
 
-      .image-container {
-      position: relative;   /* allows text positioning */
-      display: inline-block;
-    }
+  body {
+    background-color: black;
+    text-align: center;
+  }
 
-    .descripition{
-         position: absolute;
-      top: 13%;   /* vertical center */
-      left: 50%;  /* horizontal center */
-      transform: translate(-50%, -50%); /* perfect centering */
-      color: white;
-      font-family: "Manrope", sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-     .inside-text {
-      position: absolute;
-      top: 10%;   /* vertical center */
-      left: 50%;  /* horizontal center */
-      transform: translate(-50%, -50%); /* perfect centering */
-      color: white;
-      font-family: "Manrope", sans-serif;
-      font-size: 3rem;
-      font-weight: 600;
-     
-    }
-
-     #imageslayyy{
-         display: block;
-  margin: 0 auto;   /* centers image */
-  border-radius: 25px;
-  max-width: 80%;   /* makes it responsive */
-  height: auto;
-  border-top: 2px solid white;    /* white border on top */
-  border-bottom: 2px solid white; 
-     }
-    .SFmaintext{
-        font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  color: white;
-    }
-
-  
-
-    body{
-        background-color: black;
-         text-align: center; /* centers text AND image */
-    }
+  /* --- Mobile fix --- */
+  @media (max-width: 768px) {
+    .image-container { width: 95%; } /* full width */
+    .inside-text { font-size: 2rem; }
+    .descripition { font-size: 0.9rem; }
+    .buttone { padding: 14px 50px; font-size: 1rem; }
+  }
 </style>
-</html> 
-
-
+</html>
