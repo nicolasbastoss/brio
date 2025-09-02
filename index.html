@@ -147,6 +147,16 @@
   <div id="usernameDisplay"></div>
 </div>
 
+  <!-- Login / Signup Modal -->
+<div id="loginModal">
+  <div class="modal-content">
+    <h2>Sign Up / Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button id="loginBtn">Submit</button>
+  </div>
+</div>
+
 
   <h1 class="SFmaintext">Lock & Safe</h1>
 
@@ -176,7 +186,39 @@
 </body>
 
 <script>
+<script>
+const profileIcon = document.getElementById('profileIcon');
+const loginModal = document.getElementById('loginModal');
+const loginBtn = document.getElementById('loginBtn');
 
+// Show modal
+profileIcon.addEventListener('click', () => {
+  loginModal.style.display = 'flex';
+});
+
+// Close modal if clicking outside
+loginModal.addEventListener('click', (e) => {
+  if (e.target === loginModal) {
+    loginModal.style.display = 'none';
+  }
+});
+
+// Handle login
+loginBtn.addEventListener('click', () => {
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  if (username && password) {
+    // Save user in localStorage
+    localStorage.setItem('user', JSON.stringify({ username }));
+
+    // Redirect to dashboard
+    window.location.href = "dashboard.html";
+  } else {
+    alert("Please enter both username and password.");
+  }
+});
+</script>
 
 </script>
 </html>
