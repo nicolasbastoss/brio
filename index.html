@@ -107,6 +107,69 @@
       box-shadow: 0 0 20px rgba(255, 11, 235, 0.5);
     }
 
+    /* Modal background */
+#loginModal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); /* dark overlay */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Glassmorphic modal box */
+#loginModal .modal-content {
+  background: rgba(255, 255, 255, 0.1); /* transparent white */
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(15px); /* frosted glass effect */
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  color: white;
+  width: 300px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Inputs styled to match glass */
+#loginModal input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Button glass style */
+#loginModal button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.3);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#loginModal button:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+/* Small fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
     /* --- Mobile fix --- */
     @media (max-width: 768px) {
       .video-container { width: 95%; height: 600px; }
