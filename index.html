@@ -235,7 +235,7 @@
       <div class="inside-text">Safe now and forever.</div>
       <div class="descripition">The place to make your phone safe</div>
       <a href="singup.html">
-      <button class="buttone">Get started ↗</button>
+      <button class="buttone" id="getStartedBtn">Get started ↗</button>
       </a>
     </div>
   </div>
@@ -280,6 +280,13 @@ loginBtn.addEventListener('click', () => {
   } else {
     alert("Please enter both username and password.");
   }
+});
+
+  // Make "Get started" button open the modal too
+const getStartedBtn = document.getElementById('getStartedBtn');
+
+getStartedBtn.addEventListener('click', () => {
+  loginModal.style.display = 'flex';
 });
 </script>
 
