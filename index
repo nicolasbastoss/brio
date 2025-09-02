@@ -15,7 +15,7 @@
  <div class="inside-text">Your AI for Business</div>
   <div class="descripition">Make your bussines launch with AI by your side.</div>
   <button class="buttone">Get started &#8599; </button>
-  <textarea id="ttt">helo</textarea>
+ 
 </div>
     
 </body>
@@ -38,11 +38,6 @@
   animation: fadeIn 1s ease forwards; /* fade in */
 }
 
-#ttt{
-    position: absolute;
-    color: white;
-    background-color: green;
-}
 
 
 
