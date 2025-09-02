@@ -139,34 +139,7 @@
   </style>
 </head>
 <script>
- // Check if user is logged in
-window.addEventListener('load', () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if(user){
-        // Redirect to dashboard if logged in
-        window.location.href = 'dashboard.html';
-    }
-});
-
-// On page load, check if user info exists in localStorage
-window.addEventListener('load', () => {
-  const user = JSON.parse(localStorage.getItem('user'));
-  if (user) {
-    document.getElementById('usernameDisplay').textContent = user.username;
-  }
-});
-
-const user = JSON.parse(localStorage.getItem('user'));
-if(user){
-    // Show username under icon
-    document.getElementById('usernameDisplay').textContent = user.username;
-}else{
-    // If no user, redirect to main page
-    window.location.href = 'index.html';
-}
-
-
-
+ 
 
 </script>
 <body>
