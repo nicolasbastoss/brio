@@ -24,11 +24,15 @@
     }
 
     .SFmaintext {
-      font-weight: 700;
+         font-weight: 700;
       color: white;
       text-align: center;
-      margin: 20px 0;
       position: fixed;
+      top: 15px;          /* 👈 stick to top */
+      left: 50%;          /* 👈 center horizontally */
+      transform: translateX(-50%);
+      z-index: 2;         /* 👈 stays above video */
+      margin: 0
     }
 
     /* --- Video container --- */
