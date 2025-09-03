@@ -50,7 +50,7 @@
   }
 
   #usernameDisplay {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 14px;
   }
 
@@ -92,7 +92,7 @@
   <div class="profile-container">
     <div class="profile" id="profileMenu">
       <span class="material-symbols-outlined">account_circle</span>
-      <div id="usernameDisplay"></div>
+      <div id="usernameDisplay">Lock & Safe</div>
     </div>
     <div class="dropdown" id="dropdownMenu">
       <button id="logoutBtn">Logout</button>
@@ -109,7 +109,7 @@
 
   if (user && user.username) {
     usernameDisplay.textContent = user.username;
-    welcomeText.textContent = `Hello, ${user.username}`;
+  
   } else {
     window.location.href = "index.html"; // redirect if no user
   }
