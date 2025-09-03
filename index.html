@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L&S - The place where your phone is safe</title>
+  <title>CC - The place where your phone is safe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
@@ -28,6 +28,7 @@
       color: white;
       text-align: center;
       margin: 20px 0;
+      position: fixed;
     }
 
     /* --- Video container --- */
@@ -107,97 +108,8 @@
       box-shadow: 0 0 20px rgba(255, 11, 235, 0.5);
     }
 
-/* Modal background */
-#loginModal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 20px;
-}
 
-/* Glassmorphic modal box */
-#loginModal .modal-content {
-  position: relative;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 40px 30px;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-  color: white;
-  width: 100%;
-  max-width: 360px;
-  display: flex;
-  flex-direction: column;  /* ✅ everything stacked vertically */
-  align-items: center;     /* ✅ keep centered */
-  gap: 15px;               /* space between elements */
-  border: 1px solid rgba(255,255,255,0.2);
-  animation: fadeIn 0.3s ease;
-}
 
-#loginModal h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin: 0 0 10px 0;
-  text-align: center;
-}
-
-/* Inputs */
-#loginModal input {
-  width: 100%;
-  padding: 12px 14px;
-  border: none;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.15);
-  color: white;
-  font-size: 1rem;
-  outline: none;
-  transition: background 0.2s;
-}
-
-#loginModal input:focus {
-  background: rgba(255,255,255,0.25);
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
-}
-
-/* Button */
-#loginModal button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #ff0beb, #7a5cff);
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-#loginModal button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-}
-
-/* Close button */
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 1.4rem;
-  color: white;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-
-.close-btn:hover {
-  opacity: 1;
-}
 
 /* Small fade animation */
 @keyframes fadeIn {
@@ -213,24 +125,6 @@
       .buttone { padding: 14px 50px; font-size: 1rem; }
     }
 
-    .account-icon {
-  position: fixed;      /* stays in place even when scrolling */
-  top: 20px;            /* distance from top */
-  right: 20px;          /* distance from right */
-  z-index: 10;          /* above everything else */
-  text-decoration: none; /* remove underline */
-}
-
-.account-icon .material-symbols-outlined {
-  font-size: 36px;      /* small, but visible */
-  color: white;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.account-icon .material-symbols-outlined:hover {
-  transform: scale(1.2); /* slight hover effect */
-}
 
   </style>
 </head>
@@ -245,16 +139,6 @@
   <div id="usernameDisplay"></div>
 </div>
 
-<!-- Modal -->
-<div id="loginModal">
-  <div class="modal-content">
-    <span class="close-btn" id="closeModal">&times;</span>
-    <h2>Sign Up / Login</h2>
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <button id="loginBtn">Submit</button>
-  </div>
-</div>
 
   <h1 class="SFmaintext">CodeCircle</h1>
 
