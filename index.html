@@ -7,8 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-
-   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <style>
     /* 🔹 Fade-in animation */
     @keyframes fadeIn {
@@ -24,15 +23,17 @@
     }
 
     .SFmaintext {
-         font-weight: 700;
+      font-weight: 700;
       color: white;
       text-align: center;
       position: fixed;
-      top: 15px;          /* 👈 stick to top */
-      left: 50%;          /* 👈 center horizontally */
+      top: 15px;
+      left: 50%;
       transform: translateX(-50%);
-      z-index: 2;         /* 👈 stays above video */
-      margin: 0
+      z-index: 10; /* Always on top */
+      margin: 0;
+      background: black; /* prevent overlap glow */
+      padding: 10px 20px;
     }
 
     /* --- Video container --- */
@@ -40,9 +41,9 @@
       position: relative;
       width: 80%;
       max-width: 900px;
-      height: 500px;       /* 👈 give it height so video is visible */
-      margin: 0 auto;
-      border-radius: 50px; /* cylinder style */
+      height: 500px;
+      margin: 100px auto 0 auto; /* 👈 push video down, below text */
+      border-radius: 50px;
       overflow: hidden;
       border-top: 1px solid white;
       border-bottom: 1px solid white;
@@ -56,7 +57,6 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
-      
     }
 
     .overlay {
@@ -112,37 +112,21 @@
       box-shadow: 0 0 20px rgba(255, 11, 235, 0.5);
     }
 
-
-
-
-/* Small fade animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
     /* --- Mobile fix --- */
     @media (max-width: 768px) {
-      .video-container { width: 95%; height: 600px; }
+      .video-container { width: 95%; height: 600px; margin-top: 120px; }
       .inside-text { font-size: 2rem; }
       .descripition { font-size: 0.9rem; }
       .buttone { padding: 14px 50px; font-size: 1rem; }
     }
-
-
   </style>
 </head>
-<script>
- 
-
-</script>
 <body>
-<!-- Profile Icon -->
-<div class="account-icon" id="profileIcon">
-  <span class="material-symbols-outlined">account_circle</span>
-  <div id="usernameDisplay"></div>
-</div>
-
+  <!-- Profile Icon -->
+  <div class="account-icon" id="profileIcon">
+    <span class="material-symbols-outlined">account_circle</span>
+    <div id="usernameDisplay"></div>
+  </div>
 
   <h1 class="SFmaintext">CodeCircle</h1>
 
@@ -157,75 +141,27 @@
     <div class="overlay">
       <div class="inside-text">The place to code.</div>
       <div class="descripition">Let the imagination flow.</div>
-     
       <button class="buttone" id="getStartedBtn">Get started ↗</button>
-      
     </div>
   </div>
-  
-
-</div>
-
-
-  
-
 </body>
 
 <script>
-const profileIcon = document.getElementById('profileIcon');
-const loginModal = document.getElementById('loginModal');
-const loginBtn = document.getElementById('loginBtn');
 const getStartedBtn = document.getElementById('getStartedBtn');
-
 
 // ✅ Check if user is already logged in
 const savedUser = JSON.parse(localStorage.getItem('user'));
 if (savedUser && savedUser.username) {
-  // go straight to dashboard
   window.location.href = "dashboard.html";
 }
 
-document.getElementById("closeModal").addEventListener("click", () => {
-  loginModal.style.display = "none";
-});
-
-
-// Show modal when clicking profile icon
-profileIcon.addEventListener('click', () => {
-  loginModal.style.display = 'flex';
-});
-
-// Close modal if clicking outside
-loginModal.addEventListener('click', (e) => {
-  if (e.target === loginModal) {
-    loginModal.style.display = 'none';
-  }
-});
-
-// Handle login
-loginBtn.addEventListener('click', () => {
-  const username = document.getElementById('username').value.trim();
-  const password = document.getElementById('password').value.trim();
-
-  if (username && password) {
-    // Save user in localStorage
-    localStorage.setItem('user', JSON.stringify({ username }));
-
-    // Redirect to dashboard
-    window.location.href = "dashboard.html";
-  } else {
-    alert("Please enter both username and password.");
-  }
-});
-
-// Make "Get started" button open the modal if not logged in
-getStartedBtn.addEventListener('click', (e) => {
+// Make "Get started" button open login or redirect
+getStartedBtn.addEventListener('click', () => {
   if (!(savedUser && savedUser.username)) {
-    e.preventDefault(); // prevent <a> navigation
-    loginModal.style.display = 'flex';
+    alert("Please log in first!");
+  } else {
+    window.location.href = "dashboard.html";
   }
 });
 </script>
-
-
 </html>
