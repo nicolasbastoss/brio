@@ -107,61 +107,96 @@
       box-shadow: 0 0 20px rgba(255, 11, 235, 0.5);
     }
 
-    /* Modal background */
+/* Modal background */
 #loginModal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.5); /* dark overlay */
   display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 20px;
 }
 
 /* Glassmorphic modal box */
 #loginModal .modal-content {
-  background: rgba(255, 255, 255, 0.1); /* transparent white */
-  border-radius: 15px;
-  padding: 30px;
-  backdrop-filter: blur(15px); /* frosted glass effect */
-  -webkit-backdrop-filter: blur(15px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px 30px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
   color: white;
-  width: 300px;
-  text-align: center;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;  /* ✅ everything stacked vertically */
+  align-items: center;     /* ✅ keep centered */
+  gap: 15px;               /* space between elements */
+  border: 1px solid rgba(255,255,255,0.2);
   animation: fadeIn 0.3s ease;
 }
 
-/* Inputs styled to match glass */
+#loginModal h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+/* Inputs */
 #loginModal input {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 12px 14px;
   border: none;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.2);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.15);
   color: white;
   font-size: 1rem;
   outline: none;
+  transition: background 0.2s;
 }
 
-/* Button glass style */
+#loginModal input:focus {
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
+}
+
+/* Button */
 #loginModal button {
-  margin-top: 15px;
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.3);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff0beb, #7a5cff);
   color: white;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
-  transition: 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 #loginModal button:hover {
-  background: rgba(255,255,255,0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.4rem;
+  color: white;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.close-btn:hover {
+  opacity: 1;
 }
 
 /* Small fade animation */
@@ -210,16 +245,16 @@
   <div id="usernameDisplay"></div>
 </div>
 
-  <!-- Login / Signup Modal -->
+<!-- Modal -->
 <div id="loginModal">
   <div class="modal-content">
+    <span class="close-btn" id="closeModal">&times;</span>
     <h2>Sign Up / Login</h2>
     <input type="text" id="username" placeholder="Username">
     <input type="password" id="password" placeholder="Password">
     <button id="loginBtn">Submit</button>
   </div>
 </div>
-
 
   <h1 class="SFmaintext">Lock & Safe</h1>
 
@@ -254,12 +289,18 @@ const loginModal = document.getElementById('loginModal');
 const loginBtn = document.getElementById('loginBtn');
 const getStartedBtn = document.getElementById('getStartedBtn');
 
+
 // ✅ Check if user is already logged in
 const savedUser = JSON.parse(localStorage.getItem('user'));
 if (savedUser && savedUser.username) {
   // go straight to dashboard
   window.location.href = "dashboard.html";
 }
+
+document.getElementById("closeModal").addEventListener("click", () => {
+  loginModal.style.display = "none";
+});
+
 
 // Show modal when clicking profile icon
 profileIcon.addEventListener('click', () => {
