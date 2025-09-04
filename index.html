@@ -214,6 +214,23 @@
 }
 
 
+@media (max-width: 600px) {
+  .desktop{
+    display: none;
+  }
+  .mobile{
+    display: inline;
+  }
+  
+  .mobile {
+  display: none;
+}
+.desktop {
+  display: inline;
+}
+
+
+
   </style>
 </head>
 <body>
@@ -237,7 +254,12 @@
     <div class="overlay">
       <div class="inside-text">The place to code.</div>
       <div class="descripition">Let the imagination flow.</div>
-      <button class="buttone" id="getStartedBtn">Get started ↗</button>
+      <button class="buttone" id="getStartedBtn">
+        <span class="desktop">Get started ↗</span>
+        <span class="mobile">Test Command Web ↗</span>
+        
+        
+      </button>
     </div>
   </div>
 
