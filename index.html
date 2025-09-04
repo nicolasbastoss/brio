@@ -143,16 +143,45 @@
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  /* 🔹 makes text & video align properly */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  /* 🔹 add glowing border */
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+}
+
+.blocks > div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, #ff0bea, #00f7ff, #ffdd00, #ff0bea);
+  background-size: 300% 300%;
+  animation: glowing 6s linear infinite;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude; 
+  pointer-events: none;
+  opacity: 0.4; /* 🔹 subtle glow */
+}
+
+@keyframes glowing {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .blocks > div:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 25px rgba(255,255,255,0.15);
 }
+
+
 
 .blocks h1 {
   font-size: 1.6rem;
