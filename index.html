@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CC - The place where your code is beginning</title>
+  <title>command - The place where your code is beginning</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
@@ -121,6 +121,69 @@
       .descripition { font-size: 0.9rem; }
       .buttone { padding: 14px 50px; font-size: 1rem; }
     }
+
+.blocks {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  margin: 80px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.blocks > div {
+  flex: 1;
+  background: #111;            
+  color: white;
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* 🔹 makes text & video align properly */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.blocks > div:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(255, 255, 255, 0.15);
+}
+
+.blocks h1 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.blocks p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #aaa;
+  flex-grow: 1; /* 🔹 keeps text area flexible */
+}
+
+.block-video {
+  width: 100%;
+  height: 220px;
+  border-radius: 15px;
+  object-fit: cover;
+  margin-top: 20px;
+}
+
+/* Responsive stacking */
+@media (max-width: 900px) {
+  .blocks {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -130,40 +193,59 @@
     <div id="usernameDisplay"></div>
   </div>
 
-  <h1 class="SFmaintext">CodeCircle</h1>
+  <h1 class="SFmaintext">command</h1>
 
   <div class="video-container">
-    <!-- Background video -->
+    
     <video autoplay muted loop playsinline id="bgvideo">
-      <source src="video-safe.mp4" type="video/mp4">
-      Your browser does not support video playback.
-    </video>
+  <source src="video-safe.mp4" type="video/mp4">
+  Your browser does not support video playback.
+</video>
 
-    <!-- Overlay text -->
+
+
     <div class="overlay">
       <div class="inside-text">The place to code.</div>
       <div class="descripition">Let the imagination flow.</div>
       <button class="buttone" id="getStartedBtn">Get started ↗</button>
     </div>
   </div>
+
+  <div class="blocks">
+  <div class="know">
+    <h1>command knows how it is to code</h1>
+    <p>We understand the struggles, the breakthroughs, and the creativity of programming.</p>
+   
+      <video autoplay muted loop playsinline class="block-video">
+  <source src="video-safe.mp4" type="video/mp4">
+  Your browser does not support video playback.
+</video>
+
+  
+  </div>
+  <div class="friendly">
+    <h1>code-friendly</h1>
+    <p>A smooth and clean environment designed for you to write better code.</p>
+   <video autoplay muted loop playsinline class="block-video">
+  <source src="video-safe.mp4" type="video/mp4">
+  Your browser does not support video playback.
+</video>
+
+    
+  </div>
+  <div class="minimalistic">
+    <h1>minimalistic</h1>
+    <p>Everything you need, nothing you don’t. Focus on what matters most: your ideas.</p>
+    <video autoplay muted loop playsinline class="block-video">
+  <source src="video-safe.mp4" type="video/mp4">
+  Your browser does not support video playback.
+</video>
+
+  </div>
+</div>
 </body>
 
 <script>
-const getStartedBtn = document.getElementById('getStartedBtn');
 
-// ✅ Check if user is already logged in
-const savedUser = JSON.parse(localStorage.getItem('user'));
-if (savedUser && savedUser.username) {
-  window.location.href = "dashboard.html";
-}
-
-// Make "Get started" button open login or redirect
-getStartedBtn.addEventListener('click', () => {
-  if (!(savedUser && savedUser.username)) {
-    alert("Please log in first!");
-  } else {
-    window.location.href = "dashboard.html";
-  }
-});
 </script>
 </html>
