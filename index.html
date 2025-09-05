@@ -9,8 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
-  <link rel="icon" type="image/png" href="Untitled desing
-    .png">
+  <link rel="icon" type="image/png" href="Untitled design.png">
   <style>
     /* 🔹 Fade-in animation */
     @keyframes fadeIn {
@@ -232,6 +231,32 @@
     display: inline;
   }
   
+}
+
+#image {
+  position: fixed;
+  top: 10px; 
+   
+  left: 10px;      
+  z-index: 10;
+  width: 62px;     /* desktop size */
+  height: auto;    /* keeps original aspect ratio */
+  mix-blend-mode: screen; 
+}
+
+/* Mobile / celular */
+@media (max-width: 600px) {
+  #image {
+    width: 42px;    /* smaller width for phone */
+    height: auto;   /* keeps aspect ratio */
+    top: 5px;
+    left: 5px;
+  }
+}
+
+
+
+  
 
 
 
@@ -244,6 +269,8 @@
     <span class="material-symbols-outlined">account_circle</span>
     <div id="usernameDisplay"></div>
   </div>
+
+  <img src="Untitled design.png" id = "image">
 
   <h1 class="SFmaintext">command</h1>
 
