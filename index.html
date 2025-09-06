@@ -406,25 +406,19 @@
   </div>
 
 
-<header>
-  <nav class="navbar">
-    <div class="SFmaintext">brio.</div>
-
-    <!-- nav links -->
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#download-boxes">Download</a></li>
-    </ul>
-
-    <!-- hamburger button -->
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+<div class="top-bar">
+  <h1>brio.</h1>
+  <nav class="nav-links">
+    <a href="#index.html">Home</a>
+    <a href="#features">Features</a>
+    <a href="#download.html">Download</a>
   </nav>
-</header>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
   
 
   <div class="video-container">
@@ -488,6 +482,9 @@
     navLinks.classList.toggle("active");
     hamburger.classList.toggle("open");
   });
+  
+  const bg = document.getElementById("bgvideo");
+if(bg){ bg.muted = true; bg.play().catch(() => console.log("Autoplay blocked")); }
 
   
 </script>
