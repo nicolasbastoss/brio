@@ -285,6 +285,7 @@
   z-index: 100;
   
   
+  
   background: rgba(20, 20, 20, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -413,11 +414,6 @@
     <a href="#features">Features</a>
     <a href="#download.html">Download</a>
   </nav>
-  <div class="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
 </div>
   
 
@@ -475,13 +471,8 @@
 </body>
 
 <script>
-  const hamburger = document.querySelector(".hamburger");
-  const navLinks = document.querySelector(".nav-links");
 
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    hamburger.classList.toggle("open");
-  });
+  
   
   const bg = document.getElementById("bgvideo");
 if(bg){ bg.muted = true; bg.play().catch(() => console.log("Autoplay blocked")); }
