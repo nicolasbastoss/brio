@@ -26,11 +26,90 @@
   <div class="hamburger">☰</div>
 </div>
 
+<div id="download-boxes">
+  <p class="all-versions">All versions</p>
+
+  <div class="version-box">
+    <h2>Version 0.1</h2>
+    <p>First release, minimal setup.</p>
+    <a href="brio-v0.1.exe" download class="download-btn">Download</a>
+  </div>
+
+  <div class="version-box">
+    <h2>Version 0.2</h2>
+    <p>Bug fixes and improvements.</p>
+    <a href="brio-v0.2.exe" download class="download-btn">Download</a>
+  </div>
+</div>
+
 
 
     
 </body>
 <style>
+  #download-boxes {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.all-versions {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 40px;
+}
+
+/* Grid layout */
+#download-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.version-box {
+  background: #111;
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 30px;
+  color: white;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.version-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(255,255,255,0.15);
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: white;
+  color: black;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px rgba(255, 11, 235, 0.5);
+}
+
+
+
+    .all-versions{
+        font-family: "Atkinson Hyperlegible Next", sans-serif;
+        font-weight: 600;
+        font-size: 2rem;
+        color: white;
+    }
  
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
