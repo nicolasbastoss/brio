@@ -59,15 +59,16 @@
     border-bottom: 1px solid white;
     }
 
-   #bgimage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
+    #bgvideo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
     .overlay {
       position: absolute;
       top: 50%;
@@ -261,27 +262,34 @@
 }
 
 
- .top-bar {
+ 
+#refresh #image{
+  visibility: visible;
+ }
+
+ #refresh{
+  visibility: hidden;
+ }
+  
+
+.top-bar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 60px;
-
   display: flex;
   align-items: center;
-  justify-content: center; /* center everything horizontally */
+  justify-content: space-between;
   padding: 0 20px;
   z-index: 100;
-
+  
+  
   background: rgba(20, 20, 20, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-
-
 
 .top-bar .SFmaintext {
   font-size: 1.4rem;
@@ -306,15 +314,6 @@
   color: #00f7ff;
 }
 
-/* Hide nav links on mobile */
-@media (max-width: 768px) {
-  .top-bar .nav-links {
-    display: none;
-  }
-}
-  
-
-
 
 
 @media (max-width: 768px) {
@@ -335,51 +334,37 @@
     display: flex;
   }
 
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: #111;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    padding: 20px;
-    border-radius: 12px;
-    z-index: 1000;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .hamburger {
-    display: flex;
-  }
 }
+
+  
+
+
 
   </style>
 </head>
 <body>
-  <nav class="top-bar">
-  <div class="SFmaintext">brio.</div>
 
-  <!-- nav links only visible on desktop -->
-  <ul class="nav-links desktop">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#download-boxes">Download</a></li>
-  </ul>
-</nav>
+  </div>
 
- 
-
-
+   
+<div class="top-bar">
+  <h1 class="SFmaintext">brio.</h1>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="download.html">Download</a>
+    <a href="#">Pricing</a>
+    <a href="#">Contact</a>
+  </nav>
+  
+</div>
 
   
-  
-  
 
-<div class="video-container">
+  
+   
+        
+      
+    <div class="video-container">
   <img src="background.jpg" alt="Background" id="bgimage">
   <div class="overlay">
     <div class="inside-text">The place to code.</div>
@@ -390,12 +375,6 @@
     </button>
   </div>
 </div>
-        
-      </button>
-    </div>
-  </div>
-
-  
 
 <div class="blocks">
   <div class="know">
@@ -416,10 +395,12 @@
     <img src="minimalistic .jpg" alt="Minimalistic" class="block-image">
   </div>
 </div>
+  
+
 </body>
 
 <script>
-  
-  
+
+
 </script>
 </html>
